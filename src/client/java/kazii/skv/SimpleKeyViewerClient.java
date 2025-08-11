@@ -35,7 +35,6 @@ public class SimpleKeyViewerClient implements ClientModInitializer {
         int textHeight = 8;
         int padding = 3;
         int offset = 15;
-        System.out.println(textWidth);
         int drawTextX = 10;
         int drawTextY = screenHeight-offset;
         int drawBoxX1 = drawTextX-padding;
