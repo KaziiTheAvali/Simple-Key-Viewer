@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "https://modrinth.com/mod/simple-input-viewer",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/KaziiTheAvali/Simple-Key-Viewer"
 	},
 	"license": "MIT",
 	"icon": "assets/simple-key-viewer/icon.png",
