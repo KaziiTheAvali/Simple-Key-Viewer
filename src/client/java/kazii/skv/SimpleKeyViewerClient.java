@@ -49,6 +49,7 @@ public class SimpleKeyViewerClient implements ClientModInitializer {
         context.drawText(client.textRenderer,keyCodes, drawTextX, drawTextY,color,false);
     }
     public void startOfTick(){
+
         keyCodes = KeystrokeUtils.getKeyStrokes();
     }
 }
