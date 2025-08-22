@@ -20,6 +20,10 @@ repositories {
         name = "xanderRepoReleases"
         url = "https://maven.isxander.dev/releases"
     }
+    maven() {
+        name = "Terraformers"
+        url = "https://maven.terraformersmc.com/"
+    }
 }
 
 loom {
@@ -51,6 +55,9 @@ dependencies {
 
     //yacl used for configs
     modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
+
+    //mod menu version
+    modImplementation("com.terraformersmc:modmenu:${property("modmenu_version")}")
 	
 }
 
