@@ -8,10 +8,10 @@
 		"Kazii the avali"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
+		"homepage": "https://modrinth.com/mod/simple-input-viewer",
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/simple-key-viewer/icon.png",
 	"environment": "*",
 	"entrypoints": {
