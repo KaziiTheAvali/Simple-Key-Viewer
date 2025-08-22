@@ -44,6 +44,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    //yacl used for configs
+    modImplementation "dev.isxander:yet-another-config-lib:${project.yacl_version}"
 	
 }
 

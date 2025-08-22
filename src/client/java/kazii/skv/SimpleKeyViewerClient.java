@@ -22,13 +22,14 @@ public class SimpleKeyViewerClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
         HudLayerRegistrationCallback.EVENT.register(layeredDrawer -> layeredDrawer.attachLayerBefore(IdentifiedLayer.CHAT, KeyLayer, SimpleKeyViewerClient::render));
-        ClientTickEvents.START_CLIENT_TICK.register(minecraftClient -> {keyCodes = KeystrokeUtils.getKeyStrokes();});
+        ClientTickEvents.START_CLIENT_TICK.register(minecraftClient -> startOfTick());
     }
     private static void render(DrawContext context, RenderTickCounter tickCounter) {
 
-        int color = 0xFFFFFFFF; // Red
-        int targetColor = 0xFF00FF00; // Green
+        int color = 0xFFFFFFFF; //Text color
+
         var client = MinecraftClient.getInstance();
+        var backgroundColor = 0x94303030;
         int screenWidth = client.getWindow().getScaledWidth();
         int screenHeight = client.getWindow().getScaledHeight();
         int textWidth=client.textRenderer.getWidth(keyCodes);
@@ -43,8 +44,11 @@ public class SimpleKeyViewerClient implements ClientModInitializer {
         int drawBoxY2 = drawTextY+textHeight+padding;
 
         if (textWidth != 0) {
-            context.fill(drawBoxX1, drawBoxY1, drawBoxX2, drawBoxY2, 0x94303030);
+            context.fill(drawBoxX1, drawBoxY1, drawBoxX2, drawBoxY2, backgroundColor);
         }
         context.drawText(client.textRenderer,keyCodes, drawTextX, drawTextY,color,false);
+    }
+    public void startOfTick(){
+        keyCodes = KeystrokeUtils.getKeyStrokes();
     }
 }
