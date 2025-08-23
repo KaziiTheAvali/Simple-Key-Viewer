@@ -24,7 +24,6 @@ import java.awt.*;
 
 
 public class SimpleKeyViewerClient implements ClientModInitializer {
-
     private static final Identifier KeyLayer = Identifier.of("simple-key-viewer","hud-keyboard-layer");
     private static final Logger log = LoggerFactory.getLogger(SimpleKeyViewerClient.class);
     static MutableText keyCodes = Text.empty();
@@ -39,10 +38,10 @@ public class SimpleKeyViewerClient implements ClientModInitializer {
         if (!useTickText){
             keyCodes = KeystrokeUtils.getKeyStrokes();
         }
-        int color = 0xFFFFFFFF; //Text color
+        int color = Config.textColor.getRGB(); //Text color
 
         var client = MinecraftClient.getInstance();
-        var backgroundColor = 0x94303030;
+        int backgroundColor = Config.backgroundColor.getRGB();
         int screenWidth = client.getWindow().getScaledWidth();
         int screenHeight = client.getWindow().getScaledHeight();
         int textWidth=client.textRenderer.getWidth(keyCodes);

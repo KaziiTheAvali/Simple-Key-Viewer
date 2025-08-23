@@ -7,6 +7,8 @@ import dev.isxander.yacl3.platform.YACLPlatform;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 
+import java.awt.*;
+
 public class Config {
     public static final ConfigClassHandler<Config> GSON = ConfigClassHandler
             .createBuilder(Config.class)
@@ -21,5 +23,10 @@ public class Config {
     @SerialEntry
     public static boolean useTickText = true;
 
+    @SerialEntry
+    public static Color textColor = new Color(0xFFFFFFFF);
+
+    @SerialEntry
+    public static Color backgroundColor = new Color(0xFFFFFFFF);
 
 }
