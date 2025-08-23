@@ -1,5 +1,7 @@
 package kazii.skv;
 
+import  kazii.skv.config.Config;
+
 import com.mojang.datafixers.kinds.OptionalBox;
 import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.TickBoxControllerBuilder;
@@ -22,10 +24,11 @@ import java.awt.*;
 
 
 public class SimpleKeyViewerClient implements ClientModInitializer {
+
     private static final Identifier KeyLayer = Identifier.of("simple-key-viewer","hud-keyboard-layer");
     private static final Logger log = LoggerFactory.getLogger(SimpleKeyViewerClient.class);
     static MutableText keyCodes = Text.empty();
-    static boolean useTickText=true;
+    static boolean useTickText=Config.useTickText;
 	@Override
 	public void onInitializeClient() {
         HudLayerRegistrationCallback.EVENT.register(layeredDrawer -> layeredDrawer.attachLayerBefore(IdentifiedLayer.CHAT, KeyLayer, SimpleKeyViewerClient::render));
@@ -59,34 +62,9 @@ public class SimpleKeyViewerClient implements ClientModInitializer {
         context.drawText(client.textRenderer,keyCodes, drawTextX, drawTextY,color,false);
     }
     public void startOfTick(){
+        useTickText=Config.useTickText;
         if (useTickText) {
             keyCodes = KeystrokeUtils.getKeyStrokes();
         }
-    }
-    private void YACLConfigs(){
-        YetAnotherConfigLib.createBuilder()
-                .title(Text.literal("Simple Key Viewer Config"))
-                .category(ConfigCategory.createBuilder()
-                        .name(Text.literal("Tick based options"))
-                        .tooltip(Text.literal("This has the options that has the options of eather tick based or frame based updates"))
-                        .group(OptionGroup.createBuilder()
-                                .name(Text.literal("Input Text"))
-                                .description(OptionDescription.of(Text.literal("These are the input text baised options")))
-                                .option(Option.<Boolean>createBuilder()
-                                        .name(Text.literal("Use Tick Input Updates"))
-                                        .description(OptionDescription.of(Text.literal("This will chose to use tick or frame updates for input text")))
-                                        .binding(true, () -> useTickText, newVal -> useTickText = newVal)
-                                        .controller(TickBoxControllerBuilder::create)
-                                        .build())
-                                .build())
-                        .build())
-                .build()
-                .generateScreen(MinecraftClient.getInstance().currentScreen);
-
-
-
-
-
-
     }
 }

@@ -23,7 +23,10 @@
 		],
 		"fabric-datagen": [
 			"kazii.skv.SimpleKeyViewerDataGenerator"
-		]
+		],
+        "modmenu": [
+            "kazii.skv.config.ModMenuIntegration"
+        ]
 	},
 	"mixins": [
 		"simple-key-viewer.mixins.json",
