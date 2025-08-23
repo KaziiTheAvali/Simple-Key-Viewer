@@ -33,7 +33,7 @@ public class SimpleKeyViewerClient implements ClientModInitializer {
 	public void onInitializeClient() {
         HudLayerRegistrationCallback.EVENT.register(layeredDrawer -> layeredDrawer.attachLayerBefore(IdentifiedLayer.CHAT, KeyLayer, SimpleKeyViewerClient::render));
         ClientTickEvents.START_CLIENT_TICK.register(minecraftClient -> startOfTick());
-
+        Config.GSON.load();
     }
     private static void render(DrawContext context, RenderTickCounter tickCounter) {
         if (!useTickText){

@@ -28,6 +28,7 @@ public class ModMenuIntegration implements ModMenuApi{
                                         .build())
                                 .build())
                         .build())
+                .save(Config.GSON::save)
                 .build()
                 .generateScreen(parentScreen);
     }
