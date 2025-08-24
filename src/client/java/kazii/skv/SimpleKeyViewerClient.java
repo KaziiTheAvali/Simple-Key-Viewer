@@ -9,7 +9,8 @@ import kazii.skv.utils.KeystrokeUtils;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.HudLayerRegistrationCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.IdentifiedLayer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.text.MutableText;
@@ -27,9 +28,9 @@ public class SimpleKeyViewerClient implements ClientModInitializer {
     private static final Logger log = LoggerFactory.getLogger(SimpleKeyViewerClient.class);
     static MutableText keyCodes = Text.empty();
     static boolean useTickText=Config.useTickText;
-	@Override
-	public void onInitializeClient() {
-        HudRenderCallback.EVENT.register(SimpleKeyViewerClient::render);
+    @Override
+    public void onInitializeClient() {
+        HudLayerRegistrationCallback.EVENT.register(layeredDrawer -> layeredDrawer.attachLayerBefore(IdentifiedLayer.CHAT, KeyLayer, SimpleKeyViewerClient::render));
         ClientTickEvents.START_CLIENT_TICK.register(minecraftClient -> startOfTick());
         Config.GSON.load();
     }
