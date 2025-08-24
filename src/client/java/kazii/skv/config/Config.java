@@ -27,6 +27,6 @@ public class Config {
     public static Color textColor = new Color(0xFFFFFFFF);
 
     @SerialEntry
-    public static Color backgroundColor = new Color(0xFFFFFFFF);
+    public static Color backgroundColor = new Color(0x94303030);
 
 }
