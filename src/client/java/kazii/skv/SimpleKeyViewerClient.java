@@ -29,11 +29,12 @@ public class SimpleKeyViewerClient implements ClientModInitializer {
     static boolean useTickText=Config.useTickText;
 	@Override
 	public void onInitializeClient() {
-        HudRenderCallback.EVENT.register(SimpleKeyViewerClient::render);
+        HudRenderCallback.EVENT.register((SimpleKeyViewerClient::render));
         ClientTickEvents.START_CLIENT_TICK.register(minecraftClient -> startOfTick());
         Config.GSON.load();
     }
-    private static void render(DrawContext context, RenderTickCounter tickCounter) {
+
+    private static void render(DrawContext context, float v) {
         if (!useTickText){
             keyCodes = KeystrokeUtils.getKeyStrokes();
         }
@@ -59,6 +60,7 @@ public class SimpleKeyViewerClient implements ClientModInitializer {
         }
         context.drawText(client.textRenderer,keyCodes, drawTextX, drawTextY,color,false);
     }
+
     public void startOfTick(){
         useTickText=Config.useTickText;
         if (useTickText) {
