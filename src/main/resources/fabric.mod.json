@@ -37,12 +37,12 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21",
+		"minecraft": "~1.21.5",
 		"java": ">=21",
 		"fabric-api": "*",
-        "yet_another_config_lib_v3": ">=3.7.1+1.21.1-fabric"
+        "yet_another_config_lib_v3": ">=3.7.1+1.21.5-fabric"
 	},
 	"suggests": {
-      "modmenu_version": ">=11.0.3"
+      "modmenu_version": ">=14.0.0-rc.2"
 	}
 }
