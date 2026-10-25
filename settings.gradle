@@ -4,8 +4,10 @@ pluginManagement {
 			name = 'Fabric'
 			url = 'https://maven.fabricmc.net/'
 		}
-
-        mavenCentral()
+		mavenCentral()
 		gradlePluginPortal()
 	}
 }
+
+// Should match your modid
+rootProject.name = 'simple-key-viewer'

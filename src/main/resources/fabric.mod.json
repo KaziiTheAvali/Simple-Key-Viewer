@@ -2,31 +2,28 @@
 	"schemaVersion": 1,
 	"id": "simple-key-viewer",
 	"version": "${version}",
-	"name": "Simple Key Viewer",
-	"description": "This is a simple key viewer based off of the old lotas key viewer.",
+	"name": "simple key viewer",
+	"description": "This is an example description! Tell everyone what your mod is about!",
 	"authors": [
-		"Kazii the avali"
+		"Me!"
 	],
 	"contact": {
-		"homepage": "https://modrinth.com/mod/simple-input-viewer",
-		"sources": "https://github.com/KaziiTheAvali/Simple-Key-Viewer"
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
-	"license": "MIT",
+	"license": "CC0-1.0",
 	"icon": "assets/simple-key-viewer/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"kazii.skv.SimpleKeyViewer"
+			"com.kazii.SimpleKeyViewer"
 		],
 		"client": [
-			"kazii.skv.SimpleKeyViewerClient"
+			"com.kazii.client.SimpleKeyViewerClient"
 		],
 		"fabric-datagen": [
-			"kazii.skv.SimpleKeyViewerDataGenerator"
-		],
-        "modmenu": [
-            "kazii.skv.config.ModMenuIntegration"
-        ]
+			"com.kazii.client.SimpleKeyViewerDataGenerator"
+		]
 	},
 	"mixins": [
 		"simple-key-viewer.mixins.json",
@@ -36,13 +33,9 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.17.2",
-		"minecraft": "~1.21",
-		"java": ">=21",
-		"fabric-api": "*",
-        "yet_another_config_lib_v3": ">=3.7.1+1.21.1-fabric"
-	},
-	"suggests": {
-      "modmenu_version": ">=11.0.3"
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
 	}
 }
